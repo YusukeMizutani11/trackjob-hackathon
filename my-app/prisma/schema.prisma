@@ -25,7 +25,7 @@ model Interns {
 //  対象者
  target_student String
 //  募集開始　　
- recruit_begin DateTime
+ recruit_begin DateTime?
  //  募集締きり
  recruit_end DateTime?
  event_term Int?
