@@ -33,6 +33,7 @@ model Interns {
  event_end DateTime?
  tech_stack String
 //  
- remote Boolean
-//  true false
+ remote String
+//  bool ではありません！！
+//  bool にしたらまた変えなきゃ行けないからとりま放置
 }
