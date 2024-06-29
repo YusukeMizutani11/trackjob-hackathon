@@ -1,6 +1,7 @@
 import prisma from "@/prisma/client";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
+import { convertToISODate } from "../utils/utils";
 
 const schema = z.object({
   company : z.string(),
@@ -17,10 +18,7 @@ const schema = z.object({
 
 
 })
-function convertToISODate(dateString : string) {
-  const date = new Date(dateString.replace(/\//g, '-')); // Replace '/' with '-'
-  return date.toISOString();
-}
+
 
 export async function POST(req:NextRequest , res : NextResponse) {
 

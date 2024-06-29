@@ -1,15 +1,11 @@
 import prisma from "@/prisma/client";
 import { NextRequest, NextResponse } from "next/server";
 import { datas } from "@/app/constants/allData";
+import { convertToISODate } from "../../utils/utils";
 
 const constantData = datas;
 
-function convertToISODate(dateString: string | number | undefined): string | null {
-  if (!dateString || dateString === "NaN") return null;
-  const dateStr = typeof dateString === "string" ? dateString : dateString.toString();
-  const date = new Date(dateStr.replace(/\//g, "-"));
-  return date.toISOString();
-}
+
 
 export async function POST(req: NextRequest) {
   try {
