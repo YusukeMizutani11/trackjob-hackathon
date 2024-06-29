@@ -15,6 +15,10 @@ const schema = z.object({
 
 
 })
+function convertToISODate(dateString : string) {
+  const date = new Date(dateString.replace(/\//g, '-')); // Replace '/' with '-'
+  return date.toISOString();
+}
 
 export async function POST(req:NextRequest , res : NextResponse) {
 
@@ -40,3 +44,7 @@ export async function POST(req:NextRequest , res : NextResponse) {
 
   return NextResponse.json(intern)
 }
+
+
+
+

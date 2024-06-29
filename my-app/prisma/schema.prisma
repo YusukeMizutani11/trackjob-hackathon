@@ -33,6 +33,6 @@ model Interns {
  event_end DateTime?
  tech_stack String
 //  
- remote String
+ remote Boolean
 //  true false
 }
