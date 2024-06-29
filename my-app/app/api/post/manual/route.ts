@@ -33,6 +33,6 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json(interns, { status: 201 });
   } catch (error) {
-    return NextResponse.json({ error: error }, { status: 500 });
+    return NextResponse.json({ error: error }, { status: 501 });
   }
 }
