@@ -15,8 +15,12 @@
     "prisma": "^5.16.1",
     "react": "^18",
     "react-dom": "^18",
+<<<<<<< HEAD
     "react-dropdown-menu": "^0.0.2",
     "react-hook-form": "^7.52.0"
+=======
+    "zod": "^3.23.8"
+>>>>>>> 5c80afde9f8268f5687f10dba51c90bceb699268
   },
   "devDependencies": {
     "@types/node": "^20",
