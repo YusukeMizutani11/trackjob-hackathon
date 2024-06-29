@@ -1,8 +1,12 @@
 import prisma from "@/prisma/client";
-import next from "next";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(res:NextResponse) {
-  const req = await prisma.interns.findMany()
-  return(NextResponse.json(req))
+export async function GET(req: NextRequest) {
+  try {
+    const interns = await prisma.interns.findMany();
+    return NextResponse.json(interns);
+  } catch (error) {
+    console.error(error);
+    return NextResponse.json({ error: "Failed to fetch data" }, { status: 500 });
+  }
 }
