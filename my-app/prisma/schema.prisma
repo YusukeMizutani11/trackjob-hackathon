@@ -14,25 +14,25 @@ datasource db {
 }
 
 model Interns {
-  id             Int       @id @default(autoincrement())
-  // 主催
-  company        String
-  url            String
-  //  締め切り
-  hiring         Boolean
-  event_name     String
-  event_detail   String
-  //  対象者
-  target_student String
-  //  募集開始　　
-  recruit_begin  DateTime?
-  //  募集締きり
-  recruit_end    DateTime
-  event_term     Int?
-  event_begin    DateTime?
-  event_end      DateTime?
-  tech_stack     String
-  //  
-  remote         String
-  //  true false
+ id Int @id @default(autoincrement())
+// 主催
+ company String
+ url String
+//  締め切り
+ hiring Boolean
+ event_name String
+ event_detail String
+//  対象者
+ target_student String
+//  募集開始　　
+ recruit_begin DateTime
+ //  募集締きり
+ recruit_end DateTime?
+ event_term Int?
+ event_begin DateTime?
+ event_end DateTime?
+ tech_stack String
+//  
+ remote String
+//  true false
 }
