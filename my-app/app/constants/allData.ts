@@ -1,4 +1,4 @@
-const datas : any = [
+export const datas = [
   {
     募集状況: "募集中",
     主催: "株式会社スタディスト",
@@ -5237,3 +5237,6 @@ const datas : any = [
     選考フロー: "書類選考→オンライン面接2回",
   },
 ];
+
+
+console.log(datas[0]["実施時期 / 待遇"])

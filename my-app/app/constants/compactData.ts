@@ -3231,3 +3231,8 @@ const data = [
     最終更新日時: "2024年6月29日 11:07",
   },
 ];
+
+
+const filteredData = data.filter(d => d.募集状況 === "募集中")
+
+console.log(filteredData)
