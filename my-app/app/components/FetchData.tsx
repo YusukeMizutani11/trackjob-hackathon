@@ -4,9 +4,6 @@ import { useFetch } from "../hooks/useFetchUser";
 const FetchData = () => {
   const { data } = useFetch("/api/get");
   return (
-		<div className="m-0.5">
-			
-
 			<div className="relative overflow-scroll overflow-x-auto">
 				<table className="table-fixed w-full border-collapse border border-blue-200">
 					<thead className="text-red-200">
@@ -35,7 +32,6 @@ const FetchData = () => {
 					</tbody>
 				</table>
 			</div>
-		</div>
   );
 };
 
