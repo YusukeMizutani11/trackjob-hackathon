@@ -7,11 +7,20 @@ function classNames(...classes: any[]) {
   return classes.filter(Boolean).join(' ');
 }
 
+
 const Header = (props: { onChange: (item: string) => void; actions?: React.ReactNode }) => {
   const { onChange, actions } = props;
 
   const handleMenuItemClick = (item: string) => {
     onChange(item);
+
+// const Header = ( props ) => {
+// 	const { onChange, actions } = props;
+// 	const [button, setButton] = useState("");
+
+//   const handleMenuItemClick = (item) => {
+// 		setButton(item);
+
   };
 
   return (
@@ -37,28 +46,23 @@ const Header = (props: { onChange: (item: string) => void; actions?: React.React
           </div>
           <MenuItems className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
             <div className="py-1">
-              {['Company', 'URL', 'Event Name', 'Target Student', 'Recruit End', 'Tech Stack', 'Remote'].map((item) => (
-                <MenuItem key={item}>
-                  {({ active }) => (
-                    <a
-                      href="#"
-                      className={classNames(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm')}
-                      onClick={() => handleMenuItemClick(item)}
-                    >
-                      {item}
-                    </a>
-                  )}
-                </MenuItem>
+              {['26卒', '27卒', '全学年', '募集中', '募集終了', 'フロント', 'バック', 'ネットワーク', '対面', 'リモート'].map((item) => (
+								<MenuItem key={item}>
+								{({ focus }) => (
+									<a href="#" className={classNames(focus ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm')} onClick={() => handleMenuItemClick(item)}>
+										{item}
+									</a>
+								)}
+							</MenuItem>
               ))}
             </div>
           </MenuItems>
         </Menu>
-        <button
-          type="button"
-          className="text-white bg-blue-500 hover:bg-blue-700 px-2 py-1 focus:ring-2 focus:ring-blue-300 rounded-lg focus:outline-none"
-        >
-          sort
-        </button>
+        <div>
+          <button type="button" className="text-white bg-blue-500 hover:bg-blue-700 px-2 py-1 me-2 mb-2 focus:ring-2 focus:ring-blue-300 rounded-lg focus:outline-none">
+            sort
+          </button>
+        </div>
       </div>
     </header>
   );
