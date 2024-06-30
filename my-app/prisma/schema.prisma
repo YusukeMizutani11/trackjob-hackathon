@@ -34,5 +34,6 @@ model Interns {
  tech_stack String
 //  
  remote String
-//  true false
+//  bool ではありません！！
+//  bool にしたらまた変えなきゃ行けないからとりま放置
 }
