@@ -14,10 +14,9 @@ export default function Home() {
     <div>
       <Header onChange={onChange}> 
       </Header>
-
-	  <main className="flex h-screen flex-col items-center p-24">
-      <FetchData button={button} />
-    </main>
+      <main className="flex h-screen flex-col items-center p-24">
+        <FetchData button={button} />
+      </main>
       <div>
         <Footer></Footer>
       </div>
