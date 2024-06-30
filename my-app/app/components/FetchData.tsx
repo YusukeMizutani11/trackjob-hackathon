@@ -1,8 +1,18 @@
 import React from "react";
 import { useFetch } from "../hooks/useFetchUser";
 
-const FetchData = () => {
+const FetchData = (props) => {
+	const { button } = props;
   const { data } = useFetch("/api/get");
+	let result = data;
+	// let result = data?.map((data) => data.recruit_end = new Date(data.recruit_end).toLocaleDateString());
+	if (button == "Recruit End") {
+		result = data?.filter((data) => new Date(data.recruit_end) > new Date());
+	}
+	else {
+		result = data?.filter((data) => data.remote=="true");
+	}
+
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
       <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
