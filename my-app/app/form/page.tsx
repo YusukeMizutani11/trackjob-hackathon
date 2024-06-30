@@ -4,7 +4,6 @@ import { schema } from '../api/post/route'
 import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import Link from 'next/link'
 
 type FormType = z.infer<typeof schema>
 
