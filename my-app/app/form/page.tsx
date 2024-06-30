@@ -1,39 +1,45 @@
-"use client"
-import React from 'react'
-import { schema } from '../api/post/route'
-import { z } from 'zod'
-import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
+"use client";
+import React from "react";
+import { schema } from "../api/post/route";
+import { z } from "zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
-type FormType = z.infer<typeof schema>
+type FormType = z.infer<typeof schema>;
 
 const Page = () => {
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors }
-  } = useForm<FormType>({ resolver: zodResolver(schema) })
+    formState: { errors },
+  } = useForm<FormType>({ resolver: zodResolver(schema) });
 
-  const onsubmit = async (formData: FormType) => {
+  const router = useRouter();
+
+  const onSubmit = async (formData: FormType) => {
     const response = await fetch("/api/post", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData)
-    })
+      body: JSON.stringify(formData),
+    });
 
     if (response.ok) {
-      console.log("success")
+      console.log("success");
+      // フォーム送信後にホームページにリダイレクト
+      router.push("/");
     } else {
-      console.log("failed submission")
+      console.log("failed submission");
     }
 
-    reset()
-  }
+    reset();
+  };
 
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
-      <form onSubmit={handleSubmit(onsubmit)} className="space-y-4">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div>
           <label htmlFor="company" className="block text-sm font-medium text-gray-700">会社名</label>
           <input id="company" {...register("company")} className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
@@ -84,10 +90,15 @@ const Page = () => {
           <input id="remote" {...register("remote")} className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
           {errors.remote && <p className="mt-2 text-sm text-red-600">{errors.remote.message}</p>}
         </div>
-        <button type="submit" className="w-full bg-indigo-600 text-white py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Submit</button>
+        <div className="flex space-x-4">
+          <button type="submit" className="w-full bg-indigo-600 text-white py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Submit</button>
+          <Link href="/" className="w-full">
+            <button className="w-full bg-indigo-600 text-white py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">ホーム画面はこちら</button>
+          </Link>
+        </div>
       </form>
     </div>
   )
 }
 
-export default Page
+export default Page;
