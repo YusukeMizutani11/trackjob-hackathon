@@ -4,36 +4,38 @@ import { useFetch } from "../hooks/useFetchUser";
 const FetchData = () => {
   const { data } = useFetch("/api/get");
   return (
-    <div className="relative overflow-x-auto w-full">
-      <table className="table-auto border-collapse border border-blue-200 w-full">
-        <thead className="text-red-200">
-          <tr className="border-separate border border-slate-500">
-            <th scope="col" className="border border-gray-500 bg-blue-200 px-4 py-2">Company</th>
-            <th scope="col" className="border border-gray-500 bg-blue-200 px-4 py-2">URL</th>
-            <th scope="col" className="border border-gray-500 bg-blue-200 px-4 py-2">Event Name</th>
-            <th scope="col" className="border border-gray-500 bg-blue-200 px-4 py-2">Target Student</th>
-            <th scope="col" className="border border-gray-500 bg-blue-200 px-4 py-2">Recruit Begin</th>
-            <th scope="col" className="border border-gray-500 bg-blue-200 px-4 py-2">Tech Stack</th>
-            <th scope="col" className="border border-gray-500 bg-blue-200 px-4 py-2">Remote</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data?.map((item) => (
-            <tr key={item.key} className="border-separate border border-slate-500">
-              <td className="border border-gray-500 bg-blue-200 px-4 py-2">{item.company}</td>
-              <td className="border border-gray-500 bg-blue-200 px-4 py-2">
-                <a href={item.url} className="text-blue-600 underline">{item.url}</a>
-              </td>
-              <td className="border border-gray-500 bg-blue-200 px-4 py-2">{item.event_name}</td>
-              <td className="border border-gray-500 bg-blue-200 px-4 py-2">{item.target_student}</td>
-              <td className="border border-gray-500 bg-blue-200 px-4 py-2">{item.recruit_begin}</td>
-              <td className="border border-gray-500 bg-blue-200 px-4 py-2">{item.tech_stack}</td>
-              <td className="border border-gray-500 bg-blue-200 px-4 py-2">{item.remote}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+		<div className="m-0.5">
+			
+
+			<div className="relative overflow-scroll overflow-x-auto">
+				<table className="table-fixed w-full border-collapse border border-blue-200">
+					<thead className="text-red-200">
+						<tr className="border-separate border border-slate-500">
+							<th scope="col" className="sticky top-0 border border-gray-500 bg-blue-300">Company</th>
+							<th scope="col" className="sticky top-0 border border-gray-500 bg-blue-300">URL</th>
+							<th scope="col" className="sticky top-0 border border-gray-500 bg-blue-300">Event Name</th>
+							<th scope="col" className="sticky top-0 border border-gray-500 bg-blue-300">Target Student</th>
+							<th scope="col" className="sticky top-0 border border-gray-500 bg-blue-300">Recruit End</th>
+							<th scope="col" className="sticky top-0 border border-gray-500 bg-blue-300">Tech Stack</th>
+							<th scope="col" className="sticky top-0 border border-gray-500 bg-blue-300">Remote</th>
+						</tr>
+					</thead>
+					<tbody>
+						{data?.map((data) => (
+							<tr key={data.key} className="border-separate border border-slate-500">
+								<td className="border border-gray-500 bg-blue-100">{data.company}</td>
+								<td className="border text-blue-500 border-gray-500 bg-blue-100 underline"><a href={data.url}>詳しくはこちら</a></td>
+								<td className="border border-gray-500 bg-blue-100">{data.event_name}</td>
+								<td className="border border-gray-500 bg-blue-100">{data.target_student}</td>
+								<td className="border border-gray-500 bg-blue-100">{data.recruit_end}</td>
+								<td className="border border-gray-500 bg-blue-100">{data.tech_stack}</td>
+								<td className="border border-gray-500 bg-blue-100">{data.remote}</td>
+							</tr>
+						))}
+					</tbody>
+				</table>
+			</div>
+		</div>
   );
 };
 
