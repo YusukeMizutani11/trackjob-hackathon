@@ -34,6 +34,7 @@ export async function POST(req:NextRequest , res : NextResponse) {
       target_student : body.target_student,
       tech_stack : body.tech_stack,
       remote : body.remote
+      
     }
   })
 
