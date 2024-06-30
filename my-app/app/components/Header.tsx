@@ -117,7 +117,7 @@ const Header = ( props ) => {
   return (
     <header className="flex items-center justify-between border-b border-b-border px-2 py-4">
       <Link href="/">
-        <h1 className="font-heading text-lg font-bold md:text-xl">
+        <h1 className="font-heading text-lg font-bold md:text-xl text-black">
           インターン情報一覧
         </h1>
       </Link>
