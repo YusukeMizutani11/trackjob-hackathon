@@ -32,61 +32,60 @@ const Page = () => {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit(onsubmit)}>
+    <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
+      <form onSubmit={handleSubmit(onsubmit)} className="space-y-4">
         <div>
-          <label>Company</label>
-          <input {...register("company")} />
-          {errors.company && <p>{errors.company.message}</p>}
+          <label htmlFor="company" className="block text-sm font-medium text-gray-700">会社名</label>
+          <input id="company" {...register("company")} className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+          {errors.company && <p className="mt-2 text-sm text-red-600">{errors.company.message}</p>}
         </div>
         <div>
-          <label>URL</label>
-          <input {...register("url")} />
-          {errors.url && <p>{errors.url.message}</p>}
+          <label htmlFor="url" className="block text-sm font-medium text-gray-700">URL</label>
+          <input id="url" {...register("url")} className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+          {errors.url && <p className="mt-2 text-sm text-red-600">{errors.url.message}</p>}
         </div>
         <div>
-          <label>Hiring</label>
-          <input type="checkbox" {...register("hiring")} />
-          {errors.hiring && <p>{errors.hiring.message}</p>}
+          <label htmlFor="hiring" className="block text-sm font-medium text-gray-700">募集中</label>
+          <input type="checkbox" id="hiring" {...register("hiring")} className="mt-1 block" />
+          {errors.hiring && <p className="mt-2 text-sm text-red-600">{errors.hiring.message}</p>}
         </div>
         <div>
-          <label>Event Name</label>
-          <input {...register("event_name")} />
-          {errors.event_name && <p>{errors.event_name.message}</p>}
+          <label htmlFor="event_name" className="block text-sm font-medium text-gray-700">イベント名</label>
+          <input id="event_name" {...register("event_name")} className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+          {errors.event_name && <p className="mt-2 text-sm text-red-600">{errors.event_name.message}</p>}
         </div>
         <div>
-          <label>Event Detail</label>
-          <input {...register("event_detail")} />
-          {errors.event_detail && <p>{errors.event_detail.message}</p>}
+          <label htmlFor="event_detail" className="block text-sm font-medium text-gray-700">詳細</label>
+          <input id="event_detail" {...register("event_detail")} className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+          {errors.event_detail && <p className="mt-2 text-sm text-red-600">{errors.event_detail.message}</p>}
         </div>
         <div>
-          <label>Target Student</label>
-          <input {...register("target_student")} />
-          {errors.target_student && <p>{errors.target_student.message}</p>}
+          <label htmlFor="target_student" className="block text-sm font-medium text-gray-700">対象学年</label>
+          <input id="target_student" {...register("target_student")} className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+          {errors.target_student && <p className="mt-2 text-sm text-red-600">{errors.target_student.message}</p>}
         </div>
         <div>
-          <label>Recruit Begin</label>
-          <input type="date" {...register("recruit_begin")} />
-          {errors.recruit_begin && <p>{errors.recruit_begin.message}</p>}
+          <label htmlFor="recruit_begin" className="block text-sm font-medium text-gray-700">募集開始日</label>
+          <input type="date" id="recruit_begin" {...register("recruit_begin")} className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+          {errors.recruit_begin && <p className="mt-2 text-sm text-red-600">{errors.recruit_begin.message}</p>}
         </div>
         <div>
-          <label>Recruit End</label>
-          <input type="date" {...register("recruit_end")} />
-          {errors.recruit_end && <p>{errors.recruit_end.message}</p>}
+          <label htmlFor="recruit_end" className="block text-sm font-medium text-gray-700">募集締め切り期日</label>
+          <input type="date" id="recruit_end" {...register("recruit_end")} className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+          {errors.recruit_end && <p className="mt-2 text-sm text-red-600">{errors.recruit_end.message}</p>}
         </div>
         <div>
-          <label>Tech Stack</label>
-          <input {...register("tech_stack")} />
-          {errors.tech_stack && <p>{errors.tech_stack.message}</p>}
+          <label htmlFor="tech_stack" className="block text-sm font-medium text-gray-700">技術スタック</label>
+          <input id="tech_stack" {...register("tech_stack")} className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+          {errors.tech_stack && <p className="mt-2 text-sm text-red-600">{errors.tech_stack.message}</p>}
         </div>
         <div>
-          <label>場所</label>
-          <input {...register("remote")} />
-          {errors.remote && <p>{errors.remote.message}</p>}
+          <label htmlFor="remote" className="block text-sm font-medium text-gray-700">リモート</label>
+          <input id="remote" {...register("remote")} className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+          {errors.remote && <p className="mt-2 text-sm text-red-600">{errors.remote.message}</p>}
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" className="w-full bg-indigo-600 text-white py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Submit</button>
       </form>
-    
     </div>
   )
 }

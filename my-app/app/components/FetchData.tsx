@@ -8,13 +8,13 @@ const FetchData = () => {
 				<table className="table-fixed w-full border-collapse border border-blue-200">
 					<thead className="text-red-200">
 						<tr className="border-separate border border-slate-500">
-							<th scope="col" className="sticky top-0 border border-gray-500 bg-blue-300">Company</th>
+							<th scope="col" className="sticky top-0 border border-gray-500 bg-blue-300">会社名</th>
 							<th scope="col" className="sticky top-0 border border-gray-500 bg-blue-300">URL</th>
-							<th scope="col" className="sticky top-0 border border-gray-500 bg-blue-300">Event Name</th>
-							<th scope="col" className="sticky top-0 border border-gray-500 bg-blue-300">Target Student</th>
-							<th scope="col" className="sticky top-0 border border-gray-500 bg-blue-300">Recruit End</th>
-							<th scope="col" className="sticky top-0 border border-gray-500 bg-blue-300">Tech Stack</th>
-							<th scope="col" className="sticky top-0 border border-gray-500 bg-blue-300">Remote</th>
+							<th scope="col" className="sticky top-0 border border-gray-500 bg-blue-300">イベント名</th>
+							<th scope="col" className="sticky top-0 border border-gray-500 bg-blue-300">対象学年</th>
+							<th scope="col" className="sticky top-0 border border-gray-500 bg-blue-300">募集締め切り期日</th>
+							<th scope="col" className="sticky top-0 border border-gray-500 bg-blue-300">技術スタック</th>
+							<th scope="col" className="sticky top-0 border border-gray-500 bg-blue-300">リモート</th>
 						</tr>
 					</thead>
 					<tbody>
