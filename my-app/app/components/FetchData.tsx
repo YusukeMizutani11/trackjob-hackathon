@@ -4,34 +4,50 @@ import { useFetch } from "../hooks/useFetchUser";
 const FetchData = () => {
   const { data } = useFetch("/api/get");
   return (
-			<div className="relative overflow-scroll overflow-x-auto">
-				<table className="table-fixed w-full border-collapse border border-blue-200">
-					<thead className="text-red-200">
-						<tr className="border-separate border border-slate-500">
-							<th scope="col" className="sticky top-0 border border-gray-500 bg-blue-300">会社名</th>
-							<th scope="col" className="sticky top-0 border border-gray-500 bg-blue-300">URL</th>
-							<th scope="col" className="sticky top-0 border border-gray-500 bg-blue-300">イベント名</th>
-							<th scope="col" className="sticky top-0 border border-gray-500 bg-blue-300">対象学年</th>
-							<th scope="col" className="sticky top-0 border border-gray-500 bg-blue-300">募集締め切り期日</th>
-							<th scope="col" className="sticky top-0 border border-gray-500 bg-blue-300">技術スタック</th>
-							<th scope="col" className="sticky top-0 border border-gray-500 bg-blue-300">リモート</th>
-						</tr>
-					</thead>
-					<tbody>
-						{data?.map((data) => (
-							<tr key={data.key} className="border-separate border border-slate-500">
-								<td className="border border-gray-500 bg-blue-100">{data.company}</td>
-								<td className="border text-blue-500 border-gray-500 bg-blue-100 underline"><a href={data.url}>詳しくはこちら</a></td>
-								<td className="border border-gray-500 bg-blue-100">{data.event_name}</td>
-								<td className="border border-gray-500 bg-blue-100">{data.target_student}</td>
-								<td className="border border-gray-500 bg-blue-100">{data.recruit_end}</td>
-								<td className="border border-gray-500 bg-blue-100">{data.tech_stack}</td>
-								<td className="border border-gray-500 bg-blue-100">{data.remote}</td>
-							</tr>
-						))}
-					</tbody>
-				</table>
-			</div>
+    <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+      <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <tr>
+            <th scope="col" className="sticky top-0 px-6 py-3 bg-gray-100 border border-gray-200 dark:bg-gray-800">
+              会社名
+            </th>
+            <th scope="col" className="sticky top-0 px-6 py-3 bg-gray-100 border border-gray-200 dark:bg-gray-800">
+              URL
+            </th>
+            <th scope="col" className="sticky top-0 px-6 py-3 bg-gray-100 border border-gray-200 dark:bg-gray-800">
+              イベント名
+            </th>
+            <th scope="col" className="sticky top-0 px-6 py-3 bg-gray-100 border border-gray-200 dark:bg-gray-800">
+              対象学年
+            </th>
+            <th scope="col" className="sticky top-0 px-6 py-3 bg-gray-100 border border-gray-200 dark:bg-gray-800">
+              募集締め切り期日
+            </th>
+            <th scope="col" className="sticky top-0 px-6 py-3 bg-gray-100 border border-gray-200 dark:bg-gray-800">
+              技術スタック
+            </th>
+            <th scope="col" className="sticky top-0 px-6 py-3 bg-gray-100 border border-gray-200 dark:bg-gray-800">
+              リモート
+            </th>
+          </tr>
+        </thead>
+        <tbody className="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
+          {data?.map((item) => (
+            <tr key={item.key} className="hover:bg-gray-50 dark:hover:bg-gray-600">
+              <td className="px-6 py-4 border border-gray-200 dark:border-gray-700">{item.company}</td>
+              <td className="px-6 py-4 border border-gray-200 dark:border-gray-700 text-blue-500 underline">
+                <a href={item.url} target="_blank" rel="noopener noreferrer">詳しくはこちら</a>
+              </td>
+              <td className="px-6 py-4 border border-gray-200 dark:border-gray-700">{item.event_name}</td>
+              <td className="px-6 py-4 border border-gray-200 dark:border-gray-700">{item.target_student}</td>
+              <td className="px-6 py-4 border border-gray-200 dark:border-gray-700">{item.recruit_end}</td>
+              <td className="px-6 py-4 border border-gray-200 dark:border-gray-700">{item.tech_stack}</td>
+              <td className="px-6 py-4 border border-gray-200 dark:border-gray-700">{item.remote}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 
