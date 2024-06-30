@@ -2,6 +2,7 @@
 import FetchData from "./components/FetchData";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -15,6 +16,8 @@ export default function Home() {
       <div>
         <Footer></Footer>
       </div>
+      <Link href="/form" className="text-red-400">
+      フォーム      </Link>
     </div>
   );
 }

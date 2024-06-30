@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { convertToISODate } from "../utils/utils";
 
-const schema = z.object({
+export const schema = z.object({
   company : z.string(),
   url : z.string(),
   hiring : z.boolean(),
