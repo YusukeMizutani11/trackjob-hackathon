@@ -1,15 +1,15 @@
 import React from "react";
 import { useFetch } from "../hooks/useFetchUser";
 
-const FetchData = (props) => {
+const FetchData = (props : any) => {
 	const { button } = props;
   const { data } = useFetch("/api/get");
 	let result = data;
 	if (button == "26卒") {
-		result = data?.filter((data) => data.target_student.includes("26") | data.target_student.includes("全学年"));
+		result = data?.filter((data) => data.target_student.includes("26") || data.target_student.includes("全学年"));
 	}
 	else if (button == "27卒") {
-		result = data?.filter((data) => data.target_student.includes("27") | data.target_student.includes("全学年"));
+		result = data?.filter((data) => data.target_student.includes("27") || data.target_student.includes("全学年"));
 	}
 	else if (button == "全学年") {
 		result = data?.filter((data) => data.target_student.includes("全学年"));
