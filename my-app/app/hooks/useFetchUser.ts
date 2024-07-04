@@ -1,7 +1,12 @@
 import { z } from "zod";
-import { schema } from "../api/post/route";
+import { schema as originalSchema } from "../api/post/route";
 
-type Data = z.infer<typeof schema>
+// Extend the original schema to include the 'id' property
+const extendedSchema = originalSchema.extend({
+  id: z.number(), // or the appropriate type for 'id'
+});
+
+type Data = z.infer<typeof extendedSchema>
 import { useState, useEffect } from "react";
 export const useFetch = (url: string) => {
   const [data, setData] = useState<Data[]>();
